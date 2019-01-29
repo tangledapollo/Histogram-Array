@@ -2,11 +2,11 @@
 
 int main()
 {
-    int r[10][10];
-    int i, j, a, q;
-    q = 0;
+    int r[10][10];                                   /* defines array*/
+    int i, j, a, q;                                  /* defines variables we'll be using*/
+    q = 0;                                           /* sets q = 0*/
 
-    for(i = 0; i < 10; ++i)
+    for(i = 0; i < 10; ++i)                          /* intializes array and sets all array spaces = 0*/
     {
     for(j = 0; j < 10; ++j)
         {
@@ -15,27 +15,27 @@ int main()
         }
     }
     
-    while((a = getchar()) != EOF)
+    while((a = getchar()) != EOF)                     /* character/number grabbing loop */
     {
-            if(a >= '0' && a <= '9') /*Enter the loop and poop if its a number*/
+            if(a >= '0' && a <= '9')                  /*Enter the loop and poop if its a number*/
             {
-                if(r[q][a - '0'] == a - '0') /* if the array space already equals the number*/
+                if(r[q][a - '0'] == a - '0')          /* if the array space already equals the number*/
                 {
-                    while((r[q][a - '0'] == a - '0'))
-                    {
-                        ++q;
+                    while((r[q][a - '0'] == a - '0')) /* this while loop keeps track of where we're placing our instances of a number*/
+                    {                                 /* if the array value already equals the number we grabbed, add one to q*/
+                        ++q;                          /* until it no longer is equal, this gives us the array space we need*/
                     }
-                    r[q][a - '0'] = a - '0';
-                    q = 0;
+                    r[q][a - '0'] = a - '0';          /* once we find the next 0, put the number into that space*/
+                    q = 0;                            /* reset the value of q*/
                 }
-                else /* if the array space doesnt already equals the number*/
+                else                                  /* if the array space doesnt already equals the number*/
                 {
-                r[q][a - '0'] = a -'0';
+                r[q][a - '0'] = a -'0';               /* set the value of the array spot to the grabbed number*/
                 }
             }    
     }
     
-for(i = 0; i < 10; ++i)
+for(i = 0; i < 10; ++i)                               /* print the array line by line */
     {
     for(j = 0; j < 10; ++j)
         {
